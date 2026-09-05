@@ -61,10 +61,9 @@ function Home() {
   <main className="min-h-screen bg-slate-50 px-4 py-10 text-slate-900">
     <div className="mx-auto max-w-3xl">
       <header>
-  <p className="text-sm font-medium text-slate-500">FDA drug labels</p>
 
   <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-    Drug Search
+    Drug Search - by Mohit Soni
   </h1>
 
   <p className="mt-3 max-w-xl text-base leading-7 text-slate-600">
