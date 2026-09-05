@@ -104,12 +104,12 @@ function Home() {
       )}
 
       {!loading && !error && results.length > 0 && (
-        <section>
-          <p>
-            Found {results.length} result{results.length === 1 ? "" : "s"} for "
-            {lastQuery}".
-          </p>
-            <div>
+        <section className="mt-8">
+          <p className="text-sm text-slate-600">
+  Found {results.length} result{results.length === 1 ? "" : "s"} for "
+  {lastQuery}".
+</p>
+            <div className="mt-4 space-y-3">
   {results.map((drug, index) => (
     <DrugCard
       key={drug.id ?? drug.openfda?.spl_set_id?.[0] ?? index}
