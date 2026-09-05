@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import { searchDrugs } from "../services/fdaApi";
 import DrugCard from "../components/DrugCard";
@@ -11,6 +11,9 @@ function Home() {
 
   const cache = useRef(new Map());
   const activeController = useRef(null);
+  useEffect(() => {
+  return () => activeController.current?.abort();
+}, []);
 
   async function handleSearch(rawQuery) {
     const query = rawQuery.trim();
