@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import { searchDrugs } from "../services/fdaApi";
-
+import DrugCard from "../components/DrugCard";
 function Home() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -85,8 +85,15 @@ function Home() {
             Found {results.length} result{results.length === 1 ? "" : "s"} for "
             {lastQuery}".
           </p>
-
-          <pre>{JSON.stringify(results, null, 2)}</pre>
+            <div>
+  {results.map((drug, index) => (
+    <DrugCard
+      key={drug.id ?? drug.openfda?.spl_set_id?.[0] ?? index}
+      drug={drug}
+    />
+  ))}
+</div>
+          
         </section>
       )}
     </main>
