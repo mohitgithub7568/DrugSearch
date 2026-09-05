@@ -57,27 +57,50 @@ function Home() {
   return (
   <main className="min-h-screen bg-slate-50 px-4 py-10 text-slate-900">
     <div className="mx-auto max-w-3xl">
-      <h1>Drug Search</h1>
+      <header>
+  <p className="text-sm font-medium text-slate-500">FDA drug labels</p>
 
-      <p>Search public FDA drug label information by brand name.</p>
+  <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+    Drug Search
+  </h1>
+
+  <p className="mt-3 max-w-xl text-base leading-7 text-slate-600">
+    Search public FDA drug label information by brand name.
+  </p>
+</header>
 
       <SearchForm onSearch={handleSearch} loading={loading} />
 
       {!hasSearched && (
-        <p>Search for a medicine to see its label information.</p>
+        <p className="mt-8 text-sm text-slate-600">
+  Search for a medicine to see its label information.
+</p>
       )}
 
-      {loading && <p>Searching FDA drug labels...</p>}
+      {loading && <p className="mt-8 text-sm text-slate-600" role="status" aria-live="polite">
+  Searching FDA drug labels...
+</p>}
 
       {!loading && error && (
-        <section>
-          <p>{error}</p>
-          <button onClick={() => handleSearch(lastQuery)}>Try again</button>
-        </section>
+       <section
+  className="mt-8 rounded-md border border-red-200 bg-red-50 p-4"
+  role="alert"
+>
+  <p className="text-sm text-red-800">{error}</p>
+
+  <button
+    className="mt-3 rounded-md bg-red-700 px-3 py-2 text-sm font-medium text-white hover:bg-red-800"
+    onClick={() => handleSearch(lastQuery)}
+  >
+    Try again
+  </button>
+</section>
       )}
 
       {!loading && !error && hasSearched && results.length === 0 && (
-        <p>No results found for "{lastQuery}".</p>
+        <p className="mt-8 text-sm text-slate-600">
+  No results found for "{lastQuery}".
+</p>
       )}
 
       {!loading && !error && results.length > 0 && (
