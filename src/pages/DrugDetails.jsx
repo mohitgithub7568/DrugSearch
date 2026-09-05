@@ -94,61 +94,68 @@ function DrugDetails() {
   const openfda = drug.openfda ?? {};
 
   return (
-    <main>
+    <main className="mx-auto min-h-screen max-w-3xl px-4 py-10 text-slate-900">
       <p>
-        <Link to="/">← Back to search</Link>
+        <Link className="text-sm text-slate-600 hover:text-slate-900" to="/">
+          ← Back to search
+        </Link>
       </p>
 
-      <h1>{displayValue(openfda.brand_name)}</h1>
-      <p>{displayValue(openfda.generic_name)}</p>
+      <h1 className="mt-8 text-3xl font-semibold">
+        {displayValue(openfda.brand_name)}
+      </h1>
 
-      <section>
-        <h2>Product information</h2>
+      <p className="mt-2 text-slate-600">
+        {displayValue(openfda.generic_name)}
+      </p>
 
-        <dl>
+      <section className="mt-8 rounded-md border border-slate-200 bg-white p-5">
+        <h2 className="text-lg font-semibold">Product information</h2>
+
+        <dl className="mt-4 grid gap-4 sm:grid-cols-2">
           <div>
-            <dt>Manufacturer</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Manufacturer</dt>
             <dd>{displayValue(openfda.manufacturer_name)}</dd>
           </div>
 
           <div>
-            <dt>Product type</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Product type</dt>
             <dd>{displayValue(openfda.product_type)}</dd>
           </div>
 
           <div>
-            <dt>Route</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Route</dt>
             <dd>{displayValue(openfda.route)}</dd>
           </div>
 
           <div>
-            <dt>Dosage form</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Dosage form</dt>
             <dd>{displayValue(openfda.dosage_form)}</dd>
           </div>
 
           <div>
-            <dt>Active ingredient</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Active ingredient</dt>
             <dd>{displayValue(openfda.substance_name)}</dd>
           </div>
         </dl>
       </section>
 
-      <section>
-        <h2>Purpose</h2>
+      <section className="mt-8">
+        <h2 className="font-semibold">Purpose</h2>
         <p>{firstValue(drug.purpose)}</p>
       </section>
 
-      <section>
-        <h2>Indications and usage</h2>
+      <section className="mt-8">
+        <h2 className="font-semibold">Indications and usage</h2>
         <p>{firstValue(drug.indications_and_usage)}</p>
       </section>
 
-      <section>
-        <h2>Warnings</h2>
+      <section className="mt-8">
+        <h2 className="font-semibold">Warnings</h2>
         <p>{firstValue(drug.warnings)}</p>
       </section>
 
-      <p>
+      <p className="mt-8 text-sm text-slate-500">
         This information comes from public FDA label records and is not medical
         advice.
       </p>
