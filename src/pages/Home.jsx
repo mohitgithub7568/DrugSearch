@@ -55,7 +55,8 @@ function Home() {
   }
 
   return (
-    <main>
+  <main className="min-h-screen bg-slate-50 px-4 py-10 text-slate-900">
+    <div className="mx-auto max-w-3xl">
       <h1>Drug Search</h1>
 
       <p>Search public FDA drug label information by brand name.</p>
@@ -96,6 +97,7 @@ function Home() {
           
         </section>
       )}
+      </div>
     </main>
   );
 }
